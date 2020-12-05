@@ -1,65 +1,97 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from "react";
+import styled from "styled-components";
+import { Ring } from "react-awesome-spinners";
+import axios from "axios";
+import ReactPaginate from "react-paginate";
+import AppLayout from "../components/Layout/Layout";
+import { API_URL } from "../utils";
+import CountryCard from "../components/CountryCard/CountryCard";
 
-export default function Home() {
+const SpinnerWrapper = styled.div`
+  text-align: center;
+  margin-top: 20%;
+`;
+
+const ReactPaginateStyled = styled.div`
+  display: flex;
+  .pagination {
+    margin-top: 15px;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-left: auto;
+  }
+  .pagination > .active > a {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+  }
+  .pagination > li > a {
+    border: 1px solid #e9e9e9;
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
+    color: #000;
+  }
+`;
+
+const Home = () => {
+  const [countries, setCountries] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [countriesPerPage] = React.useState(10);
+
+  React.useEffect(() => {
+    const fetchCountries = async () => {
+      setLoading(true);
+      const res = await axios.get(`${API_URL}/all`);
+      setCountries(res.data);
+      setLoading(false);
+    };
+    fetchCountries();
+  }, []);
+
+  const indexOfLastCountry = currentPage * countriesPerPage;
+  const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
+  const currentCountries = countries.slice(
+    indexOfFirstCountry,
+    indexOfLastCountry
+  );
+
+  const handlePageChange = (e) => {
+    const selectedPage = e.selected;
+    setCurrentPage(selectedPage + 1);
+  };
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <AppLayout>
+      <AppLayout.Container>
+        {loading ? (
+          <SpinnerWrapper>
+            <Ring />
+          </SpinnerWrapper>
+        ) : (
+          <>
+            <CountryCard
+              countriesPage={currentCountries}
+              countries={countries}
+            />
+            <ReactPaginateStyled>
+              <ReactPaginate
+                pageCount={Math.ceil(countries.length / countriesPerPage)}
+                marginPagesDisplayed={1}
+                onPageChange={handlePageChange}
+                containerClassName={"pagination"}
+                activeClassName={"active"}
+                previousLabel={"<"}
+                nextLabel={">"}
+              />
+            </ReactPaginateStyled>
+          </>
+        )}
+      </AppLayout.Container>
+    </AppLayout>
+  );
+};
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+export default Home;
