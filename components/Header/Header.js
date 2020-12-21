@@ -9,21 +9,36 @@ const Root = styled.div`
 
 const Container = styled.div`
   max-width: 1010px;
-  padding: 26px 20px;
+  padding: 25px 20px;
   margin: 0 auto;
-  cursor: pointer;
+  position: relative;
 `;
 
-const Title = styled(Link)`
-  font-size: 28px;
+const ImageWrapper = styled.div`
+  img {
+    width: 25px;
+    position: absolute;
+    top: 15px;
+    left: 5px;
+  }
+`;
+
+const Title = styled.a`
   color: inherit;
   text-decoration: none;
+  font-size: 28px;
+  cursor: pointer;
 `;
 
 const Header = () => (
   <Root>
     <Container>
-      <Title href={{ pathname: "/" }}>Countries App</Title>
+      <ImageWrapper>
+        <img src="/001-santa-hat.png" alt="santa hat" />
+      </ImageWrapper>
+      <Link href={{ pathname: "/" }}>
+        <Title>Countries App</Title>
+      </Link>
     </Container>
   </Root>
 );
