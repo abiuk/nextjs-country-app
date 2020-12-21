@@ -7,24 +7,10 @@ import { API_URL } from "../../utils";
 import { Info, InfoRow, Value } from "../../components/CountryCard/CountryCard";
 import { Ring } from "react-awesome-spinners";
 
+import Button from "../../components/Button/Button";
 import AppLayout from "../../components/Layout/Layout";
 
 const Root = styled.div``;
-
-export const Button = styled.button`
-  padding: 8px 24px;
-  margin-bottom: 16px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  cursor: pointer;
-
-  @media screen and (min-width: 600px) {
-    :hover {
-      background-color: #000;
-      color: #fff;
-    }
-  }
-`;
 
 const DetailsRow = styled.div`
   display: flex;
