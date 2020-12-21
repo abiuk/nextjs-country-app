@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { API_URL } from "../../utils";
 import { Info, InfoRow, Value } from "../../components/CountryCard/CountryCard";
 import { Ring } from "react-awesome-spinners";
 
 import Button from "../../components/Button/Button";
 import AppLayout from "../../components/Layout/Layout";
+import Borders from "../../components/Borders/Borders";
 
 const Root = styled.div``;
 
@@ -55,38 +55,6 @@ const NameValue = styled.div`
   margin-bottom: 16px;
 `;
 
-const BorderCountryContainer = styled.div`
-  margin-top: 18px;
-  text-align: center;
-`;
-
-const Description = styled.div`
-  font-weight: bold;
-  margin-bottom: 18px;
-`;
-
-const Card = styled.div`
-  border: 1px solid #e9e9e9;
-  padding: 8px;
-  max-width: 400px;
-  margin: 0 auto 16px;
-`;
-
-const CardContainer = styled.div`
-  display: flex;
-  color: inherit;
-  text-decoration: none;
-`;
-
-const FlagColumn = styled.div`
-  text-align: left;
-  margin-right: 30px;
-`;
-
-const DetailsColumn = styled.div`
-  margin: auto;
-`;
-
 const SpinnerWrapper = styled.div`
   text-align: center;
   margin-top: 20%;
@@ -97,9 +65,8 @@ const CountryDetails = () => {
   const { code } = router.query;
 
   const [country, setCountry] = React.useState({});
-  const [countries, setCountries] = React.useState([]);
   const [loading, setLoading] = React.useState();
-  const [error, setError] = React.useState(false);
+  const [, setError] = React.useState(false);
 
   React.useEffect(() => {
     const fetchCountry = async () => {
@@ -115,16 +82,6 @@ const CountryDetails = () => {
 
     fetchCountry();
   }, [code]);
-
-  React.useEffect(() => {
-    const fetchCountries = async () => {
-      setLoading(true);
-      const res = await axios.get(`${API_URL}/all`);
-      setCountries(res.data);
-      setLoading(false);
-    };
-    fetchCountries();
-  }, []);
 
   const getArrayValues = (value, index) => (
     <Value key={index}>{(index ? ", " : "") + value}</Value>
@@ -180,64 +137,10 @@ const CountryDetails = () => {
               </DetailsRow>
             </AppLayout.Container>
           </AppLayout>
-          <Borders borders={country.borders} countries={countries} />
+          <Borders borders={country.borders} />
         </>
       )}
     </Root>
-  );
-};
-
-const Borders = ({ borders, countries }) => {
-  if (!borders || borders.length === 0 || countries.length === 0) {
-    return <Description>No borders</Description>;
-  }
-
-  const countriesByCode = countries.reduce((acc, curr) => {
-    acc[curr.alpha3Code] = curr;
-    return acc;
-  }, {});
-
-  const FLAG_WIDTH = 120;
-  const FLAG_HEIGHT = 60;
-
-  return (
-    <BorderCountryContainer>
-      <Description>Border Countries:</Description>
-      {borders.map((border) => {
-        const country = countriesByCode[border];
-
-        return (
-          !!country && (
-            <Card key={border}>
-              <Link
-                href={{
-                  pathname: "/country/[code]",
-                  query: { code: country.alpha3Code },
-                }}
-              >
-                <a>
-                  <CardContainer>
-                    <FlagColumn>
-                      <img
-                        src={country.flag}
-                        width={FLAG_WIDTH}
-                        height={FLAG_HEIGHT}
-                        alt={country.name}
-                      />
-                    </FlagColumn>
-
-                    <DetailsColumn>
-                      <Info>{country.name}</Info>
-                      <Info>{country.population.toLocaleString()}</Info>
-                    </DetailsColumn>
-                  </CardContainer>
-                </a>
-              </Link>
-            </Card>
-          )
-        );
-      })}
-    </BorderCountryContainer>
   );
 };
 
