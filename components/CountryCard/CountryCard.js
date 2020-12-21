@@ -51,6 +51,7 @@ export const ImgElement = styled.img`
 
 const InfoColumn = styled.div`
   flex-grow: 1;
+  margin: auto;
 `;
 
 export const InfoRow = styled.div`
