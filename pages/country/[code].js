@@ -98,44 +98,42 @@ const CountryDetails = () => {
       ) : (
         <>
           <AppLayout>
-            <AppLayout.Container>
-              <Button onClick={() => router.back()}>Back</Button>
-              <DetailsRow>
-                <DetailsContainer>
-                  <FlagWrapper>
-                    <ImgElement src={country.flag}></ImgElement>
-                  </FlagWrapper>
-                  <InfoColumn>
-                    <NameValue>{country.name}</NameValue>
-                    <InfoRow>
-                      <Info>Capital:</Info>
-                      <Value>{country.capital || NO_CAPITAL}</Value>
-                    </InfoRow>
-                    <InfoRow>
-                      <Info>Currency:</Info>
-                      {country.currencies &&
-                        country.currencies.map((currency, index) =>
-                          getArrayValues(currency.name, index)
-                        )}
-                    </InfoRow>
-                    <InfoRow>
-                      <Info>Population:</Info>
-                      <Value>
-                        {country.population &&
-                          country.population.toLocaleString()}
-                      </Value>
-                    </InfoRow>
-                    <InfoRow>
-                      <Info>Languge:</Info>
-                      {country.languages &&
-                        country.languages.map((language, index) =>
-                          getArrayValues(language.name, index)
-                        )}
-                    </InfoRow>
-                  </InfoColumn>
-                </DetailsContainer>
-              </DetailsRow>
-            </AppLayout.Container>
+            <Button onClick={() => router.back()}>Back</Button>
+            <DetailsRow>
+              <DetailsContainer>
+                <FlagWrapper>
+                  <ImgElement src={country.flag}></ImgElement>
+                </FlagWrapper>
+                <InfoColumn>
+                  <NameValue>{country.name}</NameValue>
+                  <InfoRow>
+                    <Info>Capital:</Info>
+                    <Value>{country.capital || NO_CAPITAL}</Value>
+                  </InfoRow>
+                  <InfoRow>
+                    <Info>Currency:</Info>
+                    {country.currencies &&
+                      country.currencies.map((currency, index) =>
+                        getArrayValues(currency.name, index)
+                      )}
+                  </InfoRow>
+                  <InfoRow>
+                    <Info>Population:</Info>
+                    <Value>
+                      {country.population &&
+                        country.population.toLocaleString()}
+                    </Value>
+                  </InfoRow>
+                  <InfoRow>
+                    <Info>Languge:</Info>
+                    {country.languages &&
+                      country.languages.map((language, index) =>
+                        getArrayValues(language.name, index)
+                      )}
+                  </InfoRow>
+                </InfoColumn>
+              </DetailsContainer>
+            </DetailsRow>
           </AppLayout>
           <Borders borders={country.borders} />
         </>

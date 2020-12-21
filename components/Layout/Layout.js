@@ -26,6 +26,4 @@ const AppLayout = ({ children }) => (
   </Layout>
 );
 
-AppLayout.Container = Container;
-
 export default AppLayout;

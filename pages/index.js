@@ -6,11 +6,7 @@ import { getCountries } from "../api";
 
 const Home = ({ countries }) => {
   return (
-    <AppLayout>
-      <AppLayout.Container>
-        {countries && <CountryCard countries={countries} />}
-      </AppLayout.Container>
-    </AppLayout>
+    <AppLayout>{countries && <CountryCard countries={countries} />}</AppLayout>
   );
 };
 
