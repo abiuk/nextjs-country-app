@@ -23,7 +23,7 @@ const Title = styled(Link)`
 const Header = () => (
   <Root>
     <Container>
-      <Link href={{ pathname: "/" }}>Countries App</Link>
+      <Title href={{ pathname: "/" }}>Countries App</Title>
     </Container>
   </Root>
 );

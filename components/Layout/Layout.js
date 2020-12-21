@@ -17,14 +17,12 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const LayoutContent = styled.div``;
-
 const AppLayout = ({ children }) => (
   <Layout>
     <LayoutHeader>
       <Header />
     </LayoutHeader>
-    <LayoutContent>{children}</LayoutContent>
+    <Container>{children}</Container>
   </Layout>
 );
 

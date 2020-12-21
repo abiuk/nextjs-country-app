@@ -5,6 +5,12 @@ Application is styled with styled-components and it's using mobile first approac
 
 ## Getting Started
 
+Clone the project localy
+
+```
+git clone git@github.com:abiuk/nextjs-country-app.git
+```
+
 Install dependencies:
 
 ```
@@ -20,8 +26,10 @@ yarn dev
 ## Possible improvements
 
 - Update README file
-- Remove all unnecessary/unused code
+- Remove all unnecessary/unused code (empty styles, inline styles, console logs)
 - Add TS
-- Use image component (nextjs)
+- Check/Use image component (nextjs)
 - Move API calls to separate folder
-- Add tests
+- Add tests - jest/cypress
+- Remove unnessecary libraries (pagination)
+- Remove separateByThousands function from util

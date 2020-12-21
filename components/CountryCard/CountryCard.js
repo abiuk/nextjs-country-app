@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-import { separateByThousands } from "../../utils";
-
 const Root = styled.div`
   display: flex;
   flex-direction: column;
@@ -72,13 +70,13 @@ export const Value = styled.div`
 
 const AElement = styled.a`
   display: flex;
-  flex-direction: column;
 `;
+
 const NO_CAPITAL = "N/A";
 
-const CountryCard = ({ countriesPage, countries }) => (
+const CountryCard = ({ countries }) => (
   <Root>
-    {countriesPage.map((country) => (
+    {countries.map((country) => (
       <Card key={country.alpha3Code}>
         <Link
           href={{
@@ -86,7 +84,7 @@ const CountryCard = ({ countriesPage, countries }) => (
             query: { code: country.alpha3Code },
           }}
         >
-          <a style={{ display: "flex" }}>
+          <AElement>
             <ImageColumn>
               <ImgElement src={country.flag} />
             </ImageColumn>
@@ -97,14 +95,14 @@ const CountryCard = ({ countriesPage, countries }) => (
               </InfoRow>
               <InfoRow>
                 <Info>Population</Info>
-                <Value>{separateByThousands(country.population)}</Value>
+                <Value>{country.population.toLocaleString()}</Value>
               </InfoRow>
               <InfoRow>
                 <Info>Capital</Info>
                 <Value>{country.capital || NO_CAPITAL}</Value>
               </InfoRow>
             </InfoColumn>
-          </a>
+          </AElement>
         </Link>
       </Card>
     ))}

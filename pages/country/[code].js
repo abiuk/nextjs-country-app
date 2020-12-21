@@ -3,7 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { API_URL, separateByThousands } from "../../utils";
+import { API_URL } from "../../utils";
 import { Info, InfoRow, Value } from "../../components/CountryCard/CountryCard";
 import { Ring } from "react-awesome-spinners";
 
@@ -124,8 +124,6 @@ const CountryDetails = () => {
         setLoading(false);
       } catch (e) {
         setError(e);
-        console.log(error);
-        //unhandled runntime error
       }
     };
 
@@ -181,7 +179,7 @@ const CountryDetails = () => {
                       <Info>Population:</Info>
                       <Value>
                         {country.population &&
-                          separateByThousands(country.population)}
+                          country.population.toLocaleString()}
                       </Value>
                     </InfoRow>
                     <InfoRow>
@@ -195,7 +193,6 @@ const CountryDetails = () => {
                 </DetailsContainer>
               </DetailsRow>
             </AppLayout.Container>
-            {console.log(country)}
           </AppLayout>
           <Borders borders={country.borders} countries={countries} />
         </>
@@ -245,7 +242,7 @@ const Borders = ({ borders, countries }) => {
 
                     <DetailsColumn>
                       <Info>{country.name}</Info>
-                      <Info>{separateByThousands(country.population)}</Info>
+                      <Info>{country.population.toLocaleString()}</Info>
                     </DetailsColumn>
                   </CardContainer>
                 </a>
@@ -257,4 +254,5 @@ const Borders = ({ borders, countries }) => {
     </BorderCountryContainer>
   );
 };
+
 export default CountryDetails;
