@@ -36,6 +36,15 @@ const Card = styled.div`
   }
 `;
 
+const AElement = styled.a`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+  }
+`;
+
 const ImageColumn = styled.div`
   margin-right: 16px;
 `;
@@ -67,10 +76,6 @@ export const Info = styled.div`
 
 export const Value = styled.div`
   color: #525252;
-`;
-
-const AElement = styled.a`
-  display: flex;
 `;
 
 const NO_CAPITAL = "N/A";
