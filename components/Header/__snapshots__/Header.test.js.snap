@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders successfully 1`] = `
+<div
+  className="Header__Root-sc-1p0oksi-0 bhRYIp"
+>
+  <div
+    className="Header__Container-sc-1p0oksi-1 jlfTsF"
+  >
+    <div
+      className="Header__ImageWrapper-sc-1p0oksi-2 iFOBbh"
+    >
+      <img
+        alt="santa hat"
+        src="/001-santa-hat.png"
+      />
+    </div>
+    <a
+      className="Header__Title-sc-1p0oksi-3 kmBZjr"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      Countries App
+    </a>
+  </div>
+</div>
+`;

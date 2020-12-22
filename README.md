@@ -1,10 +1,11 @@
+# Country App
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 Project uses data from Rest Countries API (https://restcountries.eu/#api-endpoints) and shows the list of all countries and their details.
 
 Application is styled with styled-components and it's using mobile first approach.
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/7798753/102871521-d361df80-443e-11eb-9ac5-58fe1d5b299f.gif)
-
 
 ## Getting Started
 
