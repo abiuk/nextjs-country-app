@@ -10,14 +10,9 @@ import { mount } from "enzyme";
 import Header from "./Header";
 
 describe("Header", () => {
-  it("renders successfully", () => {
+  it("should render successfully", () => {
     const tree = renderer.create(<Header />).toJSON();
     expect(tree).toMatchSnapshot();
-  });
-
-  it("should be shown", () => {
-    const wrapper = mount(<Header />);
-    expect(wrapper).not.toBeNull();
   });
 
   it("should show correct text", () => {
