@@ -3,6 +3,8 @@ Project uses data from Rest Countries API (https://restcountries.eu/#api-endpoin
 
 Application is styled with styled-components and it's using mobile first approach.
 
+https://user-images.githubusercontent.com/7798753/102871377-a6153180-443e-11eb-92f3-c2ebb2569a0b.mov
+
 ## Getting Started
 
 Clone the project localy
