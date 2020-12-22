@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountryCard should render successfully 1`] = `
+<div
+  className="CountryCard__Root-sc-187yvkl-0 kfHFOy"
+>
+  <div
+    className="CountryCard__Card-sc-187yvkl-1 eDcFFh"
+  >
+    <a
+      className="CountryCard__AElement-sc-187yvkl-2 iSGwnK"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <div
+        className="CountryCard__ImageColumn-sc-187yvkl-3 fZfVFV"
+      >
+        <img
+          className="CountryCard__ImgElement-sc-187yvkl-4 gRLlmY"
+          src="https://restcountries.eu/data/fji.svg"
+        />
+      </div>
+      <div
+        className="CountryCard__InfoColumn-sc-187yvkl-5 cnoopI"
+      >
+        <div
+          className="CountryCard__InfoRow-sc-187yvkl-6 hxqtoq"
+        >
+          <div
+            className="CountryCard__Info-sc-187yvkl-7 ibXQgH"
+          >
+            Name
+          </div>
+          <div
+            className="CountryCard__Value-sc-187yvkl-8 eLvmaF"
+          >
+            Fiji
+          </div>
+        </div>
+        <div
+          className="CountryCard__InfoRow-sc-187yvkl-6 hxqtoq"
+        >
+          <div
+            className="CountryCard__Info-sc-187yvkl-7 ibXQgH"
+          >
+            Population
+          </div>
+          <div
+            className="CountryCard__Value-sc-187yvkl-8 eLvmaF"
+          >
+            867,000
+          </div>
+        </div>
+        <div
+          className="CountryCard__InfoRow-sc-187yvkl-6 hxqtoq"
+        >
+          <div
+            className="CountryCard__Info-sc-187yvkl-7 ibXQgH"
+          >
+            Capital
+          </div>
+          <div
+            className="CountryCard__Value-sc-187yvkl-8 eLvmaF"
+          >
+            Suva
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div
+    className="CountryCard__Card-sc-187yvkl-1 eDcFFh"
+  >
+    <a
+      className="CountryCard__AElement-sc-187yvkl-2 iSGwnK"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <div
+        className="CountryCard__ImageColumn-sc-187yvkl-3 fZfVFV"
+      >
+        <img
+          className="CountryCard__ImgElement-sc-187yvkl-4 gRLlmY"
+          src="https://restcountries.eu/data/fin.svg"
+        />
+      </div>
+      <div
+        className="CountryCard__InfoColumn-sc-187yvkl-5 cnoopI"
+      >
+        <div
+          className="CountryCard__InfoRow-sc-187yvkl-6 hxqtoq"
+        >
+          <div
+            className="CountryCard__Info-sc-187yvkl-7 ibXQgH"
+          >
+            Name
+          </div>
+          <div
+            className="CountryCard__Value-sc-187yvkl-8 eLvmaF"
+          >
+            Finland
+          </div>
+        </div>
+        <div
+          className="CountryCard__InfoRow-sc-187yvkl-6 hxqtoq"
+        >
+          <div
+            className="CountryCard__Info-sc-187yvkl-7 ibXQgH"
+          >
+            Population
+          </div>
+          <div
+            className="CountryCard__Value-sc-187yvkl-8 eLvmaF"
+          >
+            5,491,817
+          </div>
+        </div>
+        <div
+          className="CountryCard__InfoRow-sc-187yvkl-6 hxqtoq"
+        >
+          <div
+            className="CountryCard__Info-sc-187yvkl-7 ibXQgH"
+          >
+            Capital
+          </div>
+          <div
+            className="CountryCard__Value-sc-187yvkl-8 eLvmaF"
+          >
+            Helsinki
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div
+    className="CountryCard__Card-sc-187yvkl-1 eDcFFh"
+  >
+    <a
+      className="CountryCard__AElement-sc-187yvkl-2 iSGwnK"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <div
+        className="CountryCard__ImageColumn-sc-187yvkl-3 fZfVFV"
+      >
+        <img
+          className="CountryCard__ImgElement-sc-187yvkl-4 gRLlmY"
+          src="https://restcountries.eu/data/fra.svg"
+        />
+      </div>
+      <div
+        className="CountryCard__InfoColumn-sc-187yvkl-5 cnoopI"
+      >
+        <div
+          className="CountryCard__InfoRow-sc-187yvkl-6 hxqtoq"
+        >
+          <div
+            className="CountryCard__Info-sc-187yvkl-7 ibXQgH"
+          >
+            Name
+          </div>
+          <div
+            className="CountryCard__Value-sc-187yvkl-8 eLvmaF"
+          >
+            France
+          </div>
+        </div>
+        <div
+          className="CountryCard__InfoRow-sc-187yvkl-6 hxqtoq"
+        >
+          <div
+            className="CountryCard__Info-sc-187yvkl-7 ibXQgH"
+          >
+            Population
+          </div>
+          <div
+            className="CountryCard__Value-sc-187yvkl-8 eLvmaF"
+          >
+            66,710,000
+          </div>
+        </div>
+        <div
+          className="CountryCard__InfoRow-sc-187yvkl-6 hxqtoq"
+        >
+          <div
+            className="CountryCard__Info-sc-187yvkl-7 ibXQgH"
+          >
+            Capital
+          </div>
+          <div
+            className="CountryCard__Value-sc-187yvkl-8 eLvmaF"
+          >
+            Paris
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+`;

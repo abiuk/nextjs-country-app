@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header renders successfully 1`] = `
+exports[`Header should render successfully 1`] = `
 <div
   className="Header__Root-sc-1p0oksi-0 bhRYIp"
 >
