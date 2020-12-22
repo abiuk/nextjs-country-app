@@ -38,22 +38,22 @@ const DetailsColumn = styled.div`
   margin: auto;
 `;
 
+const NoBorderText = styled.div`
+  margin: 10px auto;
+  width: 50%;
+  text-align: center;
+`;
+
 const Borders = ({ borders }) => {
   const [countries, setCountries] = React.useState([]);
 
   React.useEffect(() => {
     const fetchCountries = async () => {
-      //   setLoading(true);
       const res = await axios.get(`${API_URL}/all`);
       setCountries(res.data);
-      //   setLoading(false);
     };
     fetchCountries();
   }, []);
-
-  if (!borders || borders.length === 0 || countries.length === 0) {
-    return <Description>No borders</Description>;
-  }
 
   const countriesByCode = countries.reduce((acc, curr) => {
     acc[curr.alpha3Code] = curr;
@@ -65,41 +65,46 @@ const Borders = ({ borders }) => {
 
   return (
     <BorderCountryContainer>
-      <Description>Border Countries:</Description>
-      {borders.map((border) => {
-        const country = countriesByCode[border];
+      {borders && borders.length !== 0 ? (
+        <>
+          <Description>Border Countries:</Description>
+          {borders.map((border) => {
+            const country = countriesByCode[border];
+            return (
+              !!country && (
+                <Card key={border}>
+                  <Link
+                    href={{
+                      pathname: "/country/[code]",
+                      query: { code: country.alpha3Code },
+                    }}
+                  >
+                    <a>
+                      <CardContainer>
+                        <FlagColumn>
+                          <img
+                            src={country.flag}
+                            width={FLAG_WIDTH}
+                            height={FLAG_HEIGHT}
+                            alt={country.name}
+                          />
+                        </FlagColumn>
 
-        return (
-          !!country && (
-            <Card key={border}>
-              <Link
-                href={{
-                  pathname: "/country/[code]",
-                  query: { code: country.alpha3Code },
-                }}
-              >
-                <a>
-                  <CardContainer>
-                    <FlagColumn>
-                      <img
-                        src={country.flag}
-                        width={FLAG_WIDTH}
-                        height={FLAG_HEIGHT}
-                        alt={country.name}
-                      />
-                    </FlagColumn>
-
-                    <DetailsColumn>
-                      <Info>{country.name}</Info>
-                      <Info>{country.population.toLocaleString()}</Info>
-                    </DetailsColumn>
-                  </CardContainer>
-                </a>
-              </Link>
-            </Card>
-          )
-        );
-      })}
+                        <DetailsColumn>
+                          <Info>{country.name}</Info>
+                          <Info>{country.population.toLocaleString()}</Info>
+                        </DetailsColumn>
+                      </CardContainer>
+                    </a>
+                  </Link>
+                </Card>
+              )
+            );
+          })}
+        </>
+      ) : (
+        <NoBorderText>No borders</NoBorderText>
+      )}
     </BorderCountryContainer>
   );
 };

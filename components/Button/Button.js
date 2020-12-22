@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Root = styled.button`
+const Root = styled.button`
   padding: 8px 24px;
   margin-bottom: 16px;
   border: 1px solid #000;
